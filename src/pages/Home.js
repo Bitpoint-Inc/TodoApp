@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import style from "../static/css/Home.module.css";
 
-const Home = () => {
+const Home = (todo) => {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  // text: "Please insert something"
+   
 
   const onChange = (e) => {
     setTask(`${task}${e.nativeEvent.data}`); // back ticks string concatenation ES6
@@ -16,6 +18,11 @@ const Home = () => {
     setTasks(newTasks);
     setTask("");
   };
+  /* const markTodo = index => {
+    const newTodos = [...todos];
+    newTodos[index].isDone = true;
+    setTodos(newTodos);
+  }; */
 
   return (
     <div className={style.container}>
@@ -32,15 +39,18 @@ const Home = () => {
         </button>
       </div>
 
-      <ul className={style.taskList}>
+      <ul className={style.taskList}> 
+      <li>Please enter something</li>
         {tasks.map(
-          (
-            item // map,reduce functions
+          ( 
+            
+            item, // map,reduce functions also remember to settext
+            
           ) => (
-            <li>{item.name}</li>
+            <li className={style.strike}>{item.name}</li>
           )
         )}
-        {/* <li>please create task</li> */}
+        {/* <li>please create task</li>  textDecoration: isDone ? "line-through" : ""*/}
       </ul>
     </div>
   );
