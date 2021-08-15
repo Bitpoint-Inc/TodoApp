@@ -42,6 +42,6 @@
   
 }
 
-.strike:hover{
+.strike{
   text-decoration-line: line-through;
 }
